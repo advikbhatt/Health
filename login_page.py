@@ -8,12 +8,12 @@ def login_page():
     
     if st.button("Login"):
         # 🔒 Replace this logic with your Firestore query
-        user_ref = db.collection("users").where(filter=("username", "==", username)).where(filter=("password", "==", password))
+        user_ref = db.collection("users").where("username", "==", username).where("password", "==", password)
         result = user_ref.get()
 
         if result:
             st.success("Login successful!")
-            st.session_state.logged_in = True  # ✅ Login state updated
+            st.session_state.logged_in = True 
             st.rerun()
         else:
             st.error("Invalid credentials!")
