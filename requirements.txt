@@ -2,4 +2,3 @@ streamlit
 pyrebase4
 python-dotenv
 streamlit-option-menu
-firebase-admin
