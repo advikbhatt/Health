@@ -1,8 +1,9 @@
 import os
 import json
 import requests
-from dotenv import load_dotenv
-load_dotenv()
+
+import streamlit as st
+
 
 PERPLEXITY_API_KEY = st.secrets["PERPLEXITY_API_KEY"]
 
