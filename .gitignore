@@ -15,3 +15,8 @@ serviceAccountKey.json
 .env
 .streamlit/
 
+
+data/user.json
+data/user_data.json
+data/result.json
+data/data.json
