@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-from dotenv import load_dotenv
 import os
 import json
 from datetime import datetime
@@ -8,8 +7,6 @@ from generate_report import generate_ai_health_report
 
 
 def home_page():
-    # Load env variables
-    load_dotenv()
     weather_api_key = st.secrets["OPENWEATHER_API_KEY"]
 
     st.set_page_config(page_title="Weather & Pollution Dashboard", layout="wide")
@@ -34,7 +31,6 @@ def home_page():
         url = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={api_key}"
         return requests.get(url).json()
 
-    # Load default location
     location_data = get_location_from_ip()
     default_city = location_data.get("city", "")
     default_coords = location_data.get("loc", "").split(',')
@@ -55,7 +51,6 @@ def home_page():
     if "list" in pollution_data:
         pollutants = pollution_data["list"][0]["components"]
 
-    # ─────────── Display UI ───────────
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -100,7 +95,6 @@ def home_page():
             with open("data/result.json", "w") as f:
                 json.dump(result_report, f, indent=4)
 
-            # Update users list
             data_path = "data/data.json"
             if os.path.exists(data_path):
                 with open(data_path, "r") as f:

@@ -29,11 +29,9 @@ def collect_user_info():
 
         os.makedirs("data", exist_ok=True)
 
-        # Save to current user.json
         with open("data/user.json", "w") as f:
             json.dump(user_data, f, indent=4)
 
-        # Append to user_data.json
         all_data_file = "data/user_data.json"
         if os.path.exists(all_data_file):
             with open(all_data_file, "r") as f:
