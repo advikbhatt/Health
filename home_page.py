@@ -10,7 +10,7 @@ from generate_report import generate_ai_health_report
 def home_page():
     # Load env variables
     load_dotenv()
-    weather_api_key = st.secrets("OPENWEATHER_API_KEY")
+    weather_api_key = st.secrets["OPENWEATHER_API_KEY"]
 
     st.set_page_config(page_title="Weather & Pollution Dashboard", layout="wide")
     st.markdown("<h1 style='text-align: center;'>🌍 Weather & Air Quality Dashboard</h1>", unsafe_allow_html=True)
