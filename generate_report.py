@@ -4,7 +4,7 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 
-PERPLEXITY_API_KEY = ost.secrets("PERPLEXITY_API_KEY")
+PERPLEXITY_API_KEY = st.secrets("PERPLEXITY_API_KEY")
 
 def generate_ai_health_report():
     with open("data/result.json", "r") as file:
