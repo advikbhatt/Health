@@ -10,7 +10,6 @@ def collect_user_info():
     name = st.text_input("Name")
     age = st.number_input("Age", min_value=1, max_value=120, step=1)
     gender = st.selectbox("Gender", ["Male", "Female", "Other"])
-    location = st.text_input("City / Location")
 
     conditions = st.multiselect(
         "Do you have any pre-existing health conditions?",
@@ -25,7 +24,6 @@ def collect_user_info():
             "age": age,
             "gender": gender,
             "conditions": conditions if conditions else ["None"],
-            "location": location,
             "timestamp": str(datetime.now())
         }
 

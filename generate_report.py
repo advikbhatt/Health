@@ -15,24 +15,21 @@ def generate_ai_health_report():
         user_data = json.load(user_file)
 
     pollution_data = result_data["pollution_data"]
-    city = result_data["location"]["city"]
     timestamp = result_data["timestamp"]
 
     name = user_data["name"]
     age = user_data["age"]
     gender = user_data["gender"]
     conditions = ", ".join(user_data["conditions"]) if user_data["conditions"] else "None"
-    location = user_data["location"]
 
     prompt = f"""
     You are a certified environmental health expert preparing a personalized air quality health report.
 
     👤 Patient Name: {name}
-    📍 Location: {location}
     🎂 Age: {age} | Gender: {gender}
     🩺 Pre-existing Conditions: {conditions}
 
-    📊 Pollution Data (from {city} at {timestamp}):
+    📊 Pollution Data at {timestamp}):
     - PM2.5: {pollution_data['PM2.5']} µg/m³  
     - PM10: {pollution_data['PM10']} µg/m³  
     - CO: {pollution_data['CO']} µg/m³  
